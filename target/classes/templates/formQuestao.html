@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<htmlxmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <style>
+        	/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20 de jun de 2020, 23:19:26
+    Author     : C.Tiago
+*/
+
+* {box-sizing: border-box}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.dropdown {
+    width:250px;  /* Tamanho final do select */
+    overflow:hidden; /* Esconde o conteúdo que passar do tamanho especificado */
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.dropdown select {
+      background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-select.gif) no-repeat #f1f1f1;  /* Imagem de fundo (Seta) */
+      background-position: 205px center;  /*Posição da imagem do background*/
+      width: 270px; /* Tamanho do select, maior que o tamanho da div "div-select" */
+      height:48px; /* altura do select, importante para que tenha a mesma altura em todo os navegadores */
+      font-family:Arial, Helvetica, sans-serif; /* Fonte do Select */
+      font-size:18px; /* Tamanho da Fonte */
+      padding:13px 20px 13px 12px; /* Configurações de padding para posicionar o texto no campo */
+      color:black; /* Cor da Fonte */
+      text-indent: 0.01px; /* Remove seta padrão do FireFox */
+      text-overflow: "";  /* Remove seta padrão do FireFox */     
+      
+  
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+        </style>
+    </head>
+    <body>
+<div class="w3-bar w3-blue">
+  <a href="/cadastrarUsuario" class="w3-bar-item w3-button w3-mobile w3-hover-teal">Usuario</a>
+  <a href="/cadastrarQuestao" class="w3-bar-item w3-button w3-mobile w3-hover-teal">Questao</a>
+  <a href="/cadastrarProva" class="w3-bar-item w3-button w3-mobile w3-hover-teal">Prova</a>
+  <a href="/graficos" class="w3-bar-item w3-button w3-mobile w3-hover-teal">Grafico</a>
+   <a href="/tabelas" class="w3-bar-item w3-button w3-mobile w3-hover-teal">Tabela</a>
+</div>
+        <form method="post">
+            <div class="container">
+                <h1>Cadastro de Questão</h1>
+                <hr>
+
+                
+                <label for="desc"><b>Descrição:</b></label>
+                <input type="text"  name="descricaoQuestao" id="desc" required>
+                
+                <div id="respostas">
+                    <label for="qa"><b>Opção a)</b></label>
+                    <input type="text" placeholder="Digite a opção A" name="alternativaA" id="qa" >
+                    <label for="qa"><b>Opção b)</b></label>
+                    <input type="text" placeholder="Digite a opção B" name="alternativaB" id="qb" >
+                    <label for="qa"><b>Opção c)</b></label>
+                    <input type="text" placeholder="Digite a opção C" name="alternativaC" id="qc" >
+                    <label for="qa"><b>Opção d)</b></label>
+                    <input type="text" placeholder="Digite a opção D" name="alternativaD" id="qd" >
+                    <label for="qa"><b>Opção e)</b></label>
+                    <input type="text" placeholder="Digite a opção E" name="alternativaE" id="qe" >
+                    
+                
+                    <label for="resposta"><b>Resposta Correta: </b></label>
+                    <input type="radio" name="questaoCorreta" id="respostaA" checked="checked" value="a"> a &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="questaoCorreta" id="respostaB" value="b"> b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="questaoCorreta" id="respostaC" value="c"> c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="questaoCorreta" id="respostaD" value="d"> d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="questaoCorreta" id="respostaE" value="e"> e <br><br> 
+                    
+                    <label for="isActive"> <b>Questão ativa: </b></label>
+                    <input type="checkbox" id="isActive" name="estadoQuestao" checked="checked" value=0>
+                </div>    
+                <br>
+                <button type="submit" class="registerbtn">Salvar Questão</button>
+            </div>
+
+        </form>
+    </body>
+</html>

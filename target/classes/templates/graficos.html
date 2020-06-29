@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<title>Enade</title>
+	   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" type="text/javascript"></script>
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <link rel="stylesheet" href="style/styleCss.css"/>
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<div class="w3-bar w3-blue">
+  <a href="/cadastrarUsuario" class="w3-bar-item w3-button w3-mobile w3-hover-teal">Usuario</a>
+  <a href="/cadastrarQuestao" class="w3-bar-item w3-button w3-mobile w3-hover-teal">Questao</a>
+  <a href="/cadastrarProva" class="w3-bar-item w3-button w3-mobile w3-hover-teal">Prova</a>
+  <a href="/graficos" class="w3-bar-item w3-button w3-mobile w3-hover-teal">Grafico</a>
+   <a href="/tabelas" class="w3-bar-item w3-button w3-mobile w3-hover-teal">Tabela</a>
+</div>
+	<header>
+		<nav class="menu">
+		    <div class="nav-wrapper">
+		      <a href="#" class="brand-logo">Graficos</a>
+		       </div>
+		</nav>
+	
+	</header>
+	
+<span id="ev1" th:text="${eventos1}"></span>
+<span id="ev2" th:text="${eventos2}"></span>
+	<div class="wrapper">
+                    <canvas id="pie-chart" width="800" height="400"></canvas>
+                    <script>
+                    document.getElementById("ev1").style.display = 'none';
+                    document.getElementById("ev2").style.display = 'none';
+                            var teste= document.getElementById("ev1").textContent;  
+                            var teste1= document.getElementById("ev2").textContent;
+                               teste=parseInt(teste);
+                            teste1=parseInt(teste1);
+                            
+                    new Chart(document.getElementById("pie-chart"), {
+                        type: 'pie',
+                        data: {
+                          labels: ["Fizeram a Prova", "Nao Fizeram a prova"],
+                          datasets: [{
+                            label: "Porcentagem de alunos sobre prova",
+                            backgroundColor: ["#3e95cd", "#8e5ea2"],
+                            data: [teste,teste1]
+                          }]
+                        },
+                        options: {
+                          title: {
+                            display: true,
+                            text: 'Porcentagem de alunos sobre provas'
+                          }
+                        }
+                    });
+                              
+                    </script>
+                    <canvas id="bar-chart" width="800" height="450"></canvas>
+                     <script>
+                    new Chart(document.getElementById("bar-chart"), {
+    type: 'bar',
+    data: {
+      labels: ["Aluno 1", "Aluno 2", "Aluno 3", "Aluno 4", "Aluno 5","Aluno 6","Aluno 7","Aluno 8","Aluno 9","Aluno 10"],
+      datasets: [
+        {
+          label: "Numero",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#fa1616","#12cad6","#092532","#fa7d09","#2f2519"],
+          data: [50,60,70,40,20,80,68,87,36,58]
+        }
+      ]
+    },
+    options: {
+      legend: { display: false },
+      title: {
+        display: true,
+        text: 'Nota dos Top 10 ultimos alunos'
+      }
+    }
+});
+ </script>
+                </div>
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+
+
+</html>
